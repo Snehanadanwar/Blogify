@@ -1,0 +1,24 @@
+<%- include("partials/header"); -%>
+
+<div class="container jumbotron jumbotron-fluid">
+  <div class="container text-center">
+    <h3>You can delete your blogs here</h3>
+  </div>
+  <div class="row">
+    <div class="container col-sm-6 my-5">
+      <form class="mx-4" action="/delete" method="post">
+        <div class="form-group">
+          <label>Select blog to delete</label>
+          <select name="deleteID" class="form-control" required>
+            <% blogs.forEach(function(blog) { %>
+              <option value="<%= blog._id %>"><%= blog.title %></option>
+            <% }) %>
+          </select>
+          <button class="my-3 btn btn-danger" type="submit">Delete</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<%- include("partials/footer"); -%>
